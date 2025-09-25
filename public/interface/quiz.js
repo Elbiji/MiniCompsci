@@ -20,8 +20,6 @@ function startBackgroundAudio() {
 
 
 function handleQuestion(index) {
-    
-    startBackgroundAudio();
     // Quiz Progress
     // reset state
     quizProgress.innerHTML = ""
@@ -56,6 +54,7 @@ function handleQuestion(index) {
     answers.forEach((answer) => {
         answer.addEventListener("click", e => {
             // Start background audio on first user interaction
+            startBackgroundAudio();
             
             answers.forEach ((btn) => {
                 btn.disabled = true
