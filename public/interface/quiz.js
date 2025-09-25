@@ -20,6 +20,8 @@ function startBackgroundAudio() {
 
 
 function handleQuestion(index) {
+    
+    startBackgroundAudio();
     // Quiz Progress
     // reset state
     quizProgress.innerHTML = ""
@@ -111,6 +113,5 @@ function showQuizCompletion() {
     }, 3000); // 3 second delay
 }
 
-startBackgroundAudio();
 handleQuestion(currentQuestionIndex);
 
