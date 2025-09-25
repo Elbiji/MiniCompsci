@@ -54,7 +54,6 @@ function handleQuestion(index) {
     answers.forEach((answer) => {
         answer.addEventListener("click", e => {
             // Start background audio on first user interaction
-            startBackgroundAudio();
             
             answers.forEach ((btn) => {
                 btn.disabled = true
@@ -112,5 +111,6 @@ function showQuizCompletion() {
     }, 3000); // 3 second delay
 }
 
+startBackgroundAudio();
 handleQuestion(currentQuestionIndex);
 
