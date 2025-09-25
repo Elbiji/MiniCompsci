@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/output.css" rel="stylesheet">
+  <title>MiniCompSci</title>
+</head>
+<body class="font-ubuntu overflow-x-hidden">
+  <nav class="border-b-[1px] border-gray-100 bg-white/50 sticky backdrop-blur-md top-0 z-50">
+    <div class="flex items-center justify-between px-6 py-6 max-w-6xl  mx-auto">
+      <div class="flex items-center space-x-10">
+        <a href="index.html" class="text-gray-800 font-medium cursor-pointer hover:text-gray-600 transition-colors duration-300">
+          MiniCompSci
+        </a>
+        <a href="quiz.html" class="text-gray-600 hover:text-gray-800 transition-colors duration-300 cursor-pointer">
+          Mini Quiz
+        </a>
+        <a href="module.html" class="text-gray-600 hover:text-gray-800 transition-colors duration-300 cursor-pointer">
+          Modules
+        </a>
+        <!-- <a class="text-gray-600 hover:text-gray-800 transition-colors duration-300 cursor-pointer">
+          Learning Modules
+        </a> -->
+      </div>
+    </div>
+  </nav>
+    <section class="relative max-w-6xl mx-auto py-20 px-6 space-y-12 group">
+        <div class="flex-col space-y-6 justify-between items-center text-center">
+            <h1 class="text-5xl font-semibold text-gray-800">
+                Discover & Share Code Snippets
+            </h1>
+            <p class="text-gray-400">
+                Explore a curated collection of lessons
+            </p>
+        </div>
+    </section>
+    <section class="relative max-w-6xl mx-auto py-10 px-6 space-y-12 group">
+        <div id="moduleContainer" class="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-6">
+            <!-- Dynamic -->
+        </div>
+    </section>
+    <footer class="bg-white">
+        <div class="text-gray-400 p-8 text-center border-t border-gray-100">
+            © 2025 MiniCompSci. All rights reserved.
+        </div>
+    </footer>
+    <script type="module" src="./interface/module.js"></script>
+</body>
+</html>5
