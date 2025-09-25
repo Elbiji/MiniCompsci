@@ -5,6 +5,18 @@ const questionContainer = document.getElementById('questionContainer')
 const answerContainer = document.getElementById('answerContainer')
 const backgroundAudio = document.getElementById('backgroundAudio')
 let currentQuestionIndex = 0;
+let audioStarted = false
+
+
+function startBackgroundAudio() {
+    if (!audioStarted) {
+        backgroundAudio.volume = 0.2;
+        backgroundAudio.play().catch(error => {
+            console.log('Audio playback failed:', error);
+        });
+        audioStarted = true;
+    }
+}
 
 
 function handleQuestion(index) {
@@ -41,6 +53,9 @@ function handleQuestion(index) {
     let answers = document.querySelectorAll('button');
     answers.forEach((answer) => {
         answer.addEventListener("click", e => {
+            // Start background audio on first user interaction
+            startBackgroundAudio();
+            
             answers.forEach ((btn) => {
                 btn.disabled = true
             })
@@ -97,7 +112,5 @@ function showQuizCompletion() {
     }, 3000); // 3 second delay
 }
 
-backgroundAudio.volume = 0.2
-backgroundAudio.play()
 handleQuestion(currentQuestionIndex);
 
