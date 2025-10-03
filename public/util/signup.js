@@ -4,6 +4,7 @@ async function signUpNewUser(email , password) {
     const button = document.getElementById('signup-btn')
     button.disabled = true 
     button.textContent = 'Creating account...'
+    button.innerHTML = `<div class="animate-spin h-6 w-6 border-2 border-gray-300 border-t-transparent rounded-full mx-auto"></div>`
 
     try {
         const { data, error } = await supabase.auth.signUp({
