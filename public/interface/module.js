@@ -1,4 +1,5 @@
 import { modules as md } from "./constant/modules.js";
+import { requireAuth } from "../util/auth.js";
 
 const moduleContainer = document.getElementById('moduleContainer')
 
@@ -28,4 +29,5 @@ function handleModule(){
     })
 }
 
+document.addEventListener('DOMContentLoaded', requireAuth)
 handleModule()

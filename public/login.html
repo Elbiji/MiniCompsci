@@ -25,12 +25,14 @@
             </div>
             <div class="space-y-6 pt-2 flex-col mx-auto justify-center items-center">
                 <div class="flex justify-center">
-                    <input placeholder="email" type="text" class="font- border-[1px] w-96 h-10 rounded-lg p-4 focus:outline-none font-ubuntu text-xs">
+                    <input id="email" placeholder="email" type="text" class="font- border-[1px] w-96 h-10 rounded-lg p-4 focus:outline-none font-ubuntu text-xs">
                 </div>
                 <div class="flex justify-center">
-                    <input placeholder="password" type="password" class="border-[1px] w-96 h-10 rounded-lg p-4 focus:outline-none font-ubuntu text-xs">
+                    <input id="password" placeholder="password" type="password" class="border-[1px] w-96 h-10 rounded-lg p-4 focus:outline-none font-ubuntu text-xs">
                 </div>
-                <button class="border-[1px] w-96 p-2 rounded-xl font-semibold hover:bg-gray-200/20 transition-all duration-200">
+                <div id="error-message" class="hidden">
+                </div>
+                <button id="signin-btn" class="border-[1px] w-96 p-2 rounded-xl font-semibold hover:bg-gray-200/20 transition-all duration-200">
                    Login 
                 </button>
                 <p class="text-xs">
@@ -44,5 +46,6 @@
             © 2025 MiniCompSci. All rights reserved.
         </div>
     </footer>
+    <script type="module" src="./util/login.js"></script>
 </body>
 </html>
