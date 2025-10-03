@@ -15,6 +15,11 @@ export async function requireAuth() {
     return session
 }
 
+export async function signOut() {
+  const { error } = await supabase.auth.signOut()
+  location.reload()
+}
+
 export async function redirect() {
     const session = await checkAuth()
     if (session) {

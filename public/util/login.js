@@ -35,7 +35,7 @@ function signInHandler() {
 
 function handleError(message) {
     const errorDiv = document.getElementById('error-message')
-    errorDiv.className = "border-[2px] border-red-800 w-96 p-4 rounded-lg font-semibold text-red-500 bg-red-50 text-xs"
+    errorDiv.className = "border-[2px] border-red-500 w-96 p-4 rounded-lg font-semibold text-red-500 bg-red-50 text-xs"
     errorDiv.textContent = message
     errorDiv.classList.remove('hidden')
 }

@@ -3,7 +3,6 @@ import supabase from "./supabaseClient.js"
 async function signUpNewUser(email , password) {
     const button = document.getElementById('signup-btn')
     button.disabled = true 
-    button.textContent = 'Creating account...'
     button.innerHTML = `<div class="animate-spin h-6 w-6 border-2 border-gray-300 border-t-transparent rounded-full mx-auto"></div>`
 
     try {
@@ -38,7 +37,7 @@ function signUpHandler() {
 
 function handleError(message) {
     const errorDiv = document.getElementById('error-message')
-    errorDiv.className = "border-[2px] border-red-800 w-96 p-4 rounded-lg font-semibold text-red-500 bg-red-50 text-xs"
+    errorDiv.className = "border-[2px] border-red-500 w-96 p-4 rounded-lg font-semibold text-red-500 bg-red-50 text-xs"
     errorDiv.textContent = message
     errorDiv.classList.remove('hidden')
 }
