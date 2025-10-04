@@ -1,7 +1,7 @@
 import { modules as md } from "./constant/modules.js";
-import { requireAuth } from "../../src/util/auth.js";
+import { requireAuth } from "../util/auth.js";
 import { loginButton } from "./navbarLoginButton.js";
-import { checkUser, registerUser } from "../../src/models/user_courses.js";
+import { checkUser, registerUser } from "../models/user_courses.js";
 
 const moduleContainer = document.getElementById('moduleContainer')
 

@@ -1,4 +1,4 @@
-import { checkAuth, requireAuth, signOut } from "../../src/util/auth.js";
+import { checkAuth, requireAuth, signOut } from "../util/auth.js";
 
 export async function loginButton() {
     const loginBtn = document.getElementById('login-btn')
