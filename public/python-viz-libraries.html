@@ -10,6 +10,244 @@
   <title>MiniCompSci</title>
 </head>
 <body class="font-ubuntu overflow-x-hidden">
-  tesese
+  <nav class="border-b-[1px] border-gray-100 bg-white/50 sticky backdrop-blur-md top-0 z-50">
+    <div class="flex items-center justify-between px-6 py-6 max-w-6xl  mx-auto">
+      <div class="flex items-center space-x-10">
+        <a href="index.html" class="text-gray-800 font-medium cursor-pointer hover:text-gray-600 transition-colors duration-300">
+          MiniCompSci
+        </a>
+        <a href="quiz.html" class="text-gray-600 hover:text-gray-800 transition-colors duration-300 cursor-pointer">
+          Mini Quiz
+        </a>
+        <a href="module.html" class="text-gray-600 hover:text-gray-800 transition-colors duration-300 cursor-pointer">
+          Modules
+        </a>
+        <!-- <a class="text-gray-600 hover:text-gray-800 transition-colors duration-300 cursor-pointer">
+          Learning Modules
+        </a> -->
+      </div>
+      <div id="login-btn">
+      </div>
+    </div>
+  </nav>
+   <section class="relative max-w-6xl mx-auto pt-20 px-6 space-y-2 group">
+        <!-- <div class="flex space-x-4">
+            <div class="p-2 border-[1px] px-4 rounded-lg bg-white">
+                <p class="font-semibold text-sm">
+                    Data science
+                </p>
+            </div>
+            <p>
+        </div>     -->
+        <div class="inline-block w-auto p-2 border-[2px] px-4 rounded-md bg-green-50 text-green-800 border-green-500">
+            <p class="font-semibold text-xs">
+                Basic
+            </p>
+        </div>
+        <div class="flex-col space-y-6 justify-between items-center text-left">
+            <h1 class="text-5xl font-bold text-gray-800 leading-tight">
+                Popular Python Libraries for Visualization
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl">
+              Explore the possibilities of python's powerful libraries for data processing and visualization</p>
+            <div class="flex space-x-4 py-1 border-t-[1px] border-b-[1px]">
+                <div class="flex  bg-white justify-center items-center space-x-2">
+                    <p class="font-medium text-xs pr-2 py-2 border-r-2 border-gray-100">
+                        Data-science
+                    </p>
+                      <p class="font-medium text-xs py-2 pr-2 border-r-2 border-gray-100">
+                        October 3, 2025
+                    </p>
+                    <p class="font-medium text-xs">
+                        15 min read
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="relative max-w-6xl mx-auto py-10 px-6 space-y-2 group">
+      <div class="lg:flex lg:gap-12">
+        <article class="max-w-4xl space-y-6">
+          <div id="introduction" class="flex-col rounded-3xl border-[1px] space-y-6 p-8 shadow-sm">
+            <h1 class="text-3xl font-semibold text-gray-800">
+                Introduction
+            </h1>
+            <p class="leading-relaxed text-gray-600">
+              Data visualization is a powerful way to transform raw information into meaningful insights, and Python has become one of the most popular languages for this purpose. Thanks to its rich ecosystem of libraries, developers and analysts can easily create anything from simple line charts to interactive dashboards and complex statistical plots. Popular Python libraries such as Matplotlib, Seaborn, Plotly, and Bokeh offer diverse tools for crafting visualizations that cater to different needs—whether it’s quick exploratory data analysis, publication-quality graphics, or dynamic, web-based visualizations. Exploring these libraries not only helps in presenting data more effectively but also enhances the decision-making process across research, business, and technology.
+            </p>
+          </div>
+          <div id="matplotlib" class="flex-col rounded-3xl border-[1px] space-y-6 p-8 shadow-sm">
+            <h1 class="text-3xl font-semibold text-gray-800">
+                Matplotlib
+            </h1>
+            <p class="leading-relaxed text-gray-600">
+                When working with numbers, patterns often remain hidden until we put them into a visual form. Python makes this easy with libraries designed specifically for plotting and graphing. One of the most widely used is Matplotlib, which serves as the foundation for many other visualization tools. With just a few lines of code, you can create simple yet effective charts to better understand your data. Let’s start with a very basic example:
+            </p>
+            <div class="bg-gray-100/50 p-6 overflow-x-auto rounded-3xl">
+              <pre>
+                <code class="text-sm text-gray-600">
+import matplotlib.pyplot as plt
+
+# Simple data
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]  # Each y is 2 * x
+
+# Create a plot
+plt.plot(x, y, marker='o')
+
+# Add labels and a title
+plt.xlabel("X values")
+plt.ylabel("Y values (2 * X)")
+plt.title("Basic Matplotlib Example")
+
+# Show grid for clarity
+plt.grid(True)
+
+# Display the plot
+plt.show()
+                </code>
+              </pre>
+            </div>
+            <div class="p-6 rounded-3xl border-yellow-600 bg-yellow-50">
+              <ul class="text-yellow-800 space-y-1 font-medium">
+                <li>• import matplotlib.pyplot as plt → brings in the Matplotlib plotting module.</li>
+                <li>• x and y → lists that hold the data we want to plot.</li>
+                <li>• plt.plot(x, y, marker='o') → creates a line chart with circles at each point.</li>
+                <li>• plt.xlabel, plt.ylabel, and plt.title → add context to the chart.</li>
+                <li>• plt.grid(True) → makes it easier to read values against the axes.</li>
+                <li>• plt.show() → displays the final chart.</li>
+              </ul>
+            </div>
+          </div>
+          <div id="seaborn" class="flex-col rounded-3xl border-[1px] space-y-6 p-8 shadow-sm">
+            <h1 class="text-3xl font-semibold text-gray-800">
+              Seaborn
+            </h1>
+            <p class="leading-relaxed text-gray-600">
+              Seaborn is built on top of Matplotlib and specializes in statistical data visualization. It provides cleaner defaults and easier syntax for common charts.            </p>
+            <div class="bg-gray-100/50 p-6 overflow-x-auto rounded-3xl">
+              <pre>
+                <code class="text-sm text-gray-600">
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# Example dataset
+tips = sns.load_dataset("tips")  # built-in dataset about restaurant bills
+
+# Create a scatter plot with regression line
+sns.lmplot(x="total_bill", y="tip", data=tips)
+
+plt.title("Seaborn Example: Tips vs Total Bill")
+plt.show()
+                </code>
+              </pre>
+            </div>
+            <div class="p-6 rounded-3xl border-yellow-600 bg-yellow-50">
+              <ul class="text-yellow-800 space-y-1 font-medium">
+                <li>• Seaborn comes with sample datasets like tips.</li>
+                <li>• sns.lmplot() creates a scatterplot with a regression line automatically.</li>
+                <li>• Seaborn handles styling and color themes by default.</li>
+              </ul>
+            </div>
+          </div>
+          <div id="bokeh" class="flex-col rounded-3xl border-[1px] space-y-6 p-8 shadow-sm">
+            <h1 class="text-3xl font-semibold text-gray-800">
+              Interactive Charts with Bokeh
+            </h1>
+            <p class="leading-relaxed text-gray-600">
+              Bokeh focuses on interactive, web-friendly plots. Instead of static images, Bokeh outputs interactive HTML charts where you can zoom, pan, and hover. </p>
+            <div class="bg-gray-100/50 p-6 overflow-x-auto rounded-3xl">
+              <pre>
+                <code class="text-sm text-gray-600">
+from bokeh.plotting import figure, show, output_notebook
+
+# Show plots inside Jupyter Notebook (use output_file for HTML)
+output_notebook()
+
+# Create a new plot
+p = figure(title="Bokeh Example: Simple Line", 
+           x_axis_label="X values", 
+           y_axis_label="Y values")
+
+# Add a line renderer with circle markers
+x = [1, 2, 3, 4, 5]
+y = [2, 4, 6, 8, 10]
+p.line(x, y, line_width=2)
+p.circle(x, y, size=8)
+
+# Show interactive plot
+show(p)
+                </code>
+              </pre>
+            </div>
+            <div class="p-6 rounded-3xl border-yellow-600 bg-yellow-50">
+              <ul class="text-yellow-800 space-y-1 font-medium">
+                <li>• figure() creates a canvas for plotting.</li>
+                <li>• p.line() and p.circle() add line and point data.li>
+                <li>• show(p) displays the chart, which is interactive in a browser or notebook.</li>
+              </ul>
+            </div>
+          </div>
+          <div id="takeaway" class="flex-col rounded-3xl border-[1px] space-y-6 p-8 shadow-sm">
+            <h1 class="text-3xl font-semibold text-gray-800">
+              Key Takeaways
+            </h1>
+            <p class="leading-relaxed text-gray-600">
+              Bokeh focuses on interactive, web-friendly plots. Instead of static images, Bokeh outputs interactive HTML charts where you can zoom, pan, and hover. 
+            </p>
+            <div class="p-6 rounded-3xl border-yellow-600 bg-yellow-50">
+              <ul class="text-yellow-800 space-y-1 font-medium">
+                <li>• Matplotlib → Best for full control and customization; forms the foundation of many other libraries.</li>
+                <li>• Seaborn → Great for statistical plots and quick, publication-ready charts.<li>
+                <li>• Bokeh → Designed for interactivity and web applications.</li>
+              </ul>
+            </div>
+            <div class="relative w-full h-96">
+              <iframe class="w-full h-full" src="https://www.youtube.com/embed/XU5pw3QRYjQ" title="Data Science Hands-On Crash Course" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <div class="flex justify-between">
+              <button id="home-btn" class="p-4 border-[1px] rounded-lg font-normal hover:bg-gray-50 transition-all duration-200">
+                Back to modules
+              </button>
+              <button id="quiz-btn" class="p-4 border-[1px] rounded-lg font-normal hover:bg-gray-50 transition-all duration-200">
+                Take quiz
+              </button>
+            </div>
+          </div>
+        </article>
+        <aside id="section-container" class="lg:block md:hidden sm:hidden w-full">
+          <div class="flex-col space-y-2 sticky top-32">
+            <div id="section-content" class="flex-col w-full space-y-2 p-4  text-gray-600">
+              <h1 class="text-2xl font-semibold text-gray-800">
+                Modules
+              </h1>
+              <p class="hover:text-black transition-all duration-200 cursor-pointer" data-target="introduction">
+                Introduction
+              </p>
+              <p class="hover:text-black transition-all duration-200 cursor-pointer" data-target="matplotlib">
+                Matplotlib
+              </p>
+              <p class="hover:text-black transition-all duration-200 cursor-pointer" data-target="seaborn">
+                Seaborn
+              </p>
+              <p class="hover:text-black transition-all duration-200 cursor-pointer" data-target="bokeh">
+                Bokeh
+              </p>
+              <p class="hover:text-black transition-all duration-200 cursor-pointer" data-target="takeaway">
+                Takeaways
+              </p>
+              <p class="leading-relaxed text-gray-600">
+              </p>
+            </div>
+          </div> 
+        </aside>
+      </div>
+    </section>
+    <footer class="bg-white pt-20">
+        <div class="text-gray-400 p-8 text-center border-t border-gray-100">
+        © 2025 MiniCompSci. All rights reserved.
+        </div>
+    </footer>
+  <script type="module" src="./interface/pythonvizlibraries.js"></script>
 </body>
 </html>

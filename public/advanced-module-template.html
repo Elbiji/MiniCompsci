@@ -1,0 +1,372 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/output.css" rel="stylesheet">
+  <title>Advanced Module Template - MiniCompSci</title>
+</head>
+<body class="font-ubuntu overflow-x-hidden bg-gray-50">
+  <!-- Enhanced Navigation -->
+  <nav class="border-b-[1px] border-gray-200 bg-white/80 sticky backdrop-blur-md top-0 z-50 shadow-sm">
+    <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+      <div class="flex items-center space-x-10">
+        <a href="index.html" class="text-gray-800 font-bold text-lg cursor-pointer hover:text-blue-600 transition-colors duration-300">
+          MiniCompSci
+        </a>
+        <a href="quiz.html" class="text-gray-600 hover:text-gray-800 transition-colors duration-300 cursor-pointer">
+          Mini Quiz
+        </a>
+        <a href="module.html" class="text-gray-600 hover:text-gray-800 transition-colors duration-300 cursor-pointer">
+          Modules
+        </a>
+      </div>
+      <div class="flex items-center space-x-4">
+        <!-- Progress indicator -->
+        <div class="hidden md:flex items-center space-x-2 bg-blue-50 px-3 py-2 rounded-lg">
+          <div class="w-2 h-2 bg-blue-500 rounded-full"></div>
+          <span class="text-sm text-blue-700 font-medium">In Progress</span>
+        </div>
+        <div id="login-btn"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section with Enhanced Design -->
+  <section class="relative bg-gradient-to-br from-blue-50 via-white to-purple-50">
+    <div class="max-w-7xl mx-auto pt-16 pb-20 px-6">
+      <!-- Breadcrumb -->
+      <nav class="flex mb-8" aria-label="Breadcrumb">
+        <ol class="flex items-center space-x-1 md:space-x-3">
+          <li><a href="module.html" class="text-gray-500 hover:text-gray-700 text-sm">Modules</a></li>
+          <li><span class="text-gray-400 mx-2">/</span></li>
+          <li><span class="text-blue-600 text-sm font-medium">Advanced JavaScript Concepts</span></li>
+        </ol>
+      </nav>
+
+      <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
+        <div class="flex-1 space-y-6">
+          <!-- Tags and Difficulty -->
+          <div class="flex flex-wrap items-center gap-3">
+            <div class="inline-block px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-xs font-semibold">
+              JavaScript
+            </div>
+            <div class="inline-block px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-xs font-semibold">
+              Web Development
+            </div>
+            <div class="inline-block px-3 py-1 bg-green-100 text-green-800 rounded-full text-xs font-semibold border-2 border-green-200">
+              Intermediate
+            </div>
+          </div>
+
+          <!-- Title and Description -->
+          <div class="space-y-4">
+            <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+              Advanced JavaScript Concepts
+            </h1>
+            <p class="text-xl text-gray-600 leading-relaxed max-w-3xl">
+              Master closures, async/await, prototypes, and modern ES6+ features that every JavaScript developer should know.
+            </p>
+          </div>
+
+          <!-- Module Stats -->
+          <div class="flex flex-wrap items-center gap-6 py-4 border-t border-gray-200">
+            <div class="flex items-center space-x-2">
+              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span class="text-sm text-gray-600 font-medium">45 min read</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              <span class="text-sm text-gray-600 font-medium">8 Sections</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <svg class="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+              <span class="text-sm text-gray-600 font-medium">Updated Oct 4, 2025</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Card -->
+        <div class="lg:w-80">
+          <div class="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
+            <div class="flex items-center justify-between mb-4">
+              <h3 class="font-semibold text-gray-900">Your Progress</h3>
+              <span class="text-2xl">📚</span>
+            </div>
+            <div class="space-y-4">
+              <div class="flex justify-between text-sm">
+                <span class="text-gray-600">Completed</span>
+                <span class="font-medium text-gray-900">3 of 8 sections</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-blue-500 h-2 rounded-full transition-all duration-500" style="width: 37.5%"></div>
+              </div>
+              <div class="flex justify-between text-xs text-gray-500">
+                <span>37% Complete</span>
+                <span>~30 min left</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Table of Contents -->
+  <section class="sticky top-20 z-40 bg-white border-b border-gray-200 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4">
+      <div class="flex items-center space-x-8 overflow-x-auto scrollbar-hide">
+        <span class="text-sm font-medium text-gray-500 whitespace-nowrap">Contents:</span>
+        <a href="#intro" class="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Introduction</a>
+        <a href="#closures" class="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Closures</a>
+        <a href="#promises" class="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Promises</a>
+        <a href="#async" class="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Async/Await</a>
+        <a href="#prototypes" class="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Prototypes</a>
+        <a href="#modules" class="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">ES6 Modules</a>
+        <a href="#destructuring" class="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Destructuring</a>
+        <a href="#summary" class="text-sm text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors">Summary</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="max-w-7xl mx-auto py-12 px-6">
+    <div class="lg:flex lg:gap-12">
+      <!-- Content -->
+      <article class="lg:flex-1 max-w-4xl">
+        <!-- Introduction Section -->
+        <section id="intro" class="section-content mb-16 scroll-mt-28">
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-3xl font-bold text-gray-900">Introduction</h2>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-sm text-green-600 font-medium">Completed</span>
+              </div>
+            </div>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-gray-700 leading-relaxed mb-6">
+                JavaScript has evolved tremendously over the years, introducing powerful features that enable developers to write more efficient, readable, and maintainable code. In this comprehensive module, we'll explore advanced JavaScript concepts that form the foundation of modern web development.
+              </p>
+              <div class="bg-blue-50 border-l-4 border-blue-400 p-6 rounded-lg">
+                <h4 class="font-semibold text-blue-900 mb-2">What you'll learn:</h4>
+                <ul class="text-blue-800 space-y-1">
+                  <li>• How closures work and practical use cases</li>
+                  <li>• Mastering asynchronous JavaScript with Promises and async/await</li>
+                  <li>• Understanding JavaScript's prototype-based inheritance</li>
+                  <li>• ES6+ features like modules, destructuring, and more</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Closures Section -->
+        <section id="closures" class="section-content mb-16 scroll-mt-28">
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-3xl font-bold text-gray-900">Understanding Closures</h2>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-sm text-green-600 font-medium">Completed</span>
+              </div>
+            </div>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-gray-700 leading-relaxed mb-6">
+                A closure is a feature where an inner function has access to the outer (enclosing) function's variables. This is one of JavaScript's most powerful and often misunderstood features.
+              </p>
+              
+              <!-- Code Example -->
+              <div class="bg-gray-900 rounded-lg p-6 mb-6 overflow-x-auto">
+                <pre class="text-green-400 text-sm"><code>function outerFunction(x) {
+  // This is the outer function's variable
+  
+  function innerFunction(y) {
+    // Inner function has access to outer function's variable
+    console.log(x + y);
+  }
+  
+  return innerFunction;
+}
+
+const myClosure = outerFunction(10);
+myClosure(5); // Outputs: 15</code></pre>
+              </div>
+
+              <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-lg">
+                <h4 class="font-semibold text-yellow-900 mb-2">💡 Key Insight:</h4>
+                <p class="text-yellow-800">Closures allow functions to "remember" variables from their creation context, even after the outer function has finished executing.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Promises Section -->
+        <section id="promises" class="section-content mb-16 scroll-mt-28">
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8">
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-3xl font-bold text-gray-900">Working with Promises</h2>
+              <div class="flex items-center space-x-2">
+                <div class="w-3 h-3 bg-green-500 rounded-full"></div>
+                <span class="text-sm text-green-600 font-medium">Completed</span>
+              </div>
+            </div>
+            <div class="prose prose-lg max-w-none">
+              <p class="text-gray-700 leading-relaxed mb-6">
+                Promises provide a way to handle asynchronous operations more elegantly than traditional callbacks, avoiding the infamous "callback hell."
+              </p>
+              
+              <!-- Interactive Example -->
+              <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg p-6 mb-6">
+                <h4 class="font-semibold text-purple-900 mb-4">🚀 Try it yourself:</h4>
+                <button id="promise-demo" class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors">
+                  Run Promise Demo
+                </button>
+                <div id="promise-output" class="mt-4 p-4 bg-white rounded border-2 border-dashed border-purple-300 text-sm text-gray-600">
+                  Click the button to see promises in action!
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- More sections would go here... -->
+        
+        <!-- Navigation between sections -->
+        <div class="flex justify-between items-center mt-16 pt-8 border-t border-gray-200">
+          <button class="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+            <span>Previous: Introduction</span>
+          </button>
+          <button class="flex items-center space-x-2 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-colors">
+            <span>Next: Async/Await</span>
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </article>
+
+      <!-- Sidebar -->
+      <aside class="lg:w-80 mt-12 lg:mt-0">
+        <div class="sticky top-32 space-y-6">
+          <!-- Progress Overview -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">Module Progress</h3>
+            <div class="space-y-3">
+              <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 bg-green-500 rounded-full flex-shrink-0"></div>
+                <span class="text-sm text-gray-700">Introduction</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 bg-green-500 rounded-full flex-shrink-0"></div>
+                <span class="text-sm text-gray-700">Closures</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 bg-blue-500 rounded-full flex-shrink-0"></div>
+                <span class="text-sm font-medium text-blue-700">Promises (Current)</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <span class="text-sm text-gray-500">Async/Await</span>
+              </div>
+              <div class="flex items-center space-x-3">
+                <div class="w-4 h-4 bg-gray-300 rounded-full flex-shrink-0"></div>
+                <span class="text-sm text-gray-500">Prototypes</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Related Modules -->
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">Related Modules</h3>
+            <div class="space-y-3">
+              <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                <h4 class="font-medium text-gray-900 text-sm">React Hooks Deep Dive</h4>
+                <p class="text-xs text-gray-600 mt-1">Advanced React concepts</p>
+              </a>
+              <a href="#" class="block p-3 rounded-lg hover:bg-gray-50 transition-colors">
+                <h4 class="font-medium text-gray-900 text-sm">Node.js Fundamentals</h4>
+                <p class="text-xs text-gray-600 mt-1">Server-side JavaScript</p>
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="bg-gradient-to-br from-blue-50 to-purple-50 rounded-2xl border border-blue-200 p-6">
+            <h3 class="font-semibold text-gray-900 mb-4">Quick Actions</h3>
+            <div class="space-y-3">
+              <button class="w-full text-left p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
+                <div class="flex items-center space-x-3">
+                  <span class="text-lg">💾</span>
+                  <span class="text-sm font-medium text-gray-700">Save Progress</span>
+                </div>
+              </button>
+              <button class="w-full text-left p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
+                <div class="flex items-center space-x-3">
+                  <span class="text-lg">🔖</span>
+                  <span class="text-sm font-medium text-gray-700">Bookmark</span>
+                </div>
+              </div>
+              <button class="w-full text-left p-3 bg-white rounded-lg hover:shadow-md transition-shadow">
+                <div class="flex items-center space-x-3">
+                  <span class="text-lg">💬</span>
+                  <span class="text-sm font-medium text-gray-700">Get Help</span>
+                </div>
+              </button>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Enhanced Footer -->
+  <footer class="bg-white border-t border-gray-200 mt-20">
+    <div class="max-w-7xl mx-auto py-12 px-6">
+      <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-4">Continue Learning</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Next Module: React Fundamentals</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Practice: JavaScript Challenges</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Quiz: Test Your Knowledge</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-4">Resources</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Code Examples</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Additional Reading</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Video Tutorials</a></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="font-semibold text-gray-900 mb-4">Support</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Community Forum</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Report an Issue</a></li>
+            <li><a href="#" class="hover:text-gray-900 transition-colors">Contact Support</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="text-gray-400 text-center border-t border-gray-100 pt-8">
+        © 2025 MiniCompSci. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="./interface/advanced-module-template.js"></script>
+</body>
+</html>
