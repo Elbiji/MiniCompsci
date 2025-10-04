@@ -1,4 +1,5 @@
 import supabase from "./supabaseClient.js"
+import { createUser } from "../models/user.js"
 
 async function signUpNewUser(email , password) {
     const button = document.getElementById('signup-btn')
@@ -15,6 +16,12 @@ async function signUpNewUser(email , password) {
         })
 
         if (error) throw error
+        
+        try {
+            await createUser(data)
+        } catch (error) {
+            handleError(error.message)
+        }
 
         window.location.href = './index.html'
     } catch (error) {

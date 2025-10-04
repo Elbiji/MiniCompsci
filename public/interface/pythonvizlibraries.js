@@ -1,5 +1,5 @@
 import { loginButton } from "./navbarLoginButton.js";
-import { requireAuth } from "../util/auth.js";
+import { requireAuth } from "../../src/util/auth.js";
 
 function sectionContainer() {
     document.querySelectorAll('p[data-target').forEach(link => {
@@ -29,4 +29,4 @@ function handleRedirectModule(){
 }
 
 
-document.addEventListener('DOMContentLoaded', requireAuth, loginButton, sectionContainer(), handleRedirectQuiz(), handleRedirectModule())
+document.addEventListener('DOMContentLoaded', requireAuth(), loginButton(), sectionContainer(), handleRedirectQuiz(), handleRedirectModule())
