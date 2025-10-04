@@ -17,7 +17,7 @@ function sectionContainer() {
 function handleRedirectQuiz(){
     const quizBtn = document.getElementById("quiz-btn")
     quizBtn.addEventListener('click', () => {
-        window.location.href = "./quiz.html"
+        window.location.href = "./python-viz-quiz.html"
     })
 }
 

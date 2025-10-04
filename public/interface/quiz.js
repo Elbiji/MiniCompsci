@@ -1,4 +1,4 @@
-import { questions as qs } from "./constant/questions.js";
+import { questions as pythonVizQuestions } from "./constant/pythonVizQuestions.js";
 
 const quizProgress = document.getElementById('quizProgress')
 const questionContainer = document.getElementById('questionContainer')
@@ -18,13 +18,24 @@ function startBackgroundAudio() {
     }
 }
 
+function loadAppropriateQuestions() {
+    const quizElement = document.querySelector('div[data-quiz-id]');
+    const quizId = quizElement?.getAttribute('data-quiz-id');
+    
+    if (quizId === "python-viz") {
+        return pythonVizQuestions;
+    }
+    return []; // Fallback
+}
+
 
 function handleQuestion(index) {
     // Quiz Progress
     // reset state
+    const questions = loadAppropriateQuestions()
     quizProgress.innerHTML = ""
-    qs.forEach((question) => { 
-        // Appends each element in qs
+    questions.forEach((question) => { 
+        // Appends each element in questions
         quizProgress.innerHTML += `<span class="flex-1 h-1.5 bg-gray-300 rounded-full transition-all duration-300 lg:w-[50px] md:w-[25px]"></span>`
     });
 
@@ -37,13 +48,13 @@ function handleQuestion(index) {
 
     // topic/question
     questionContainer.innerHTML = `
-    <p class="text-gray-600 font-regular text-sm">${qs[index].topic}</p>
-    <p class="text-lg">${qs[index].question}</p>`;
+    <p class="text-gray-600 font-regular text-sm">${questions[index].topic}</p>
+    <p class="text-lg">${questions[index].question}</p>`;
 
     // answers
     // reset state
     answerContainer.innerHTML = ''
-    qs[index].possibleAnswers.forEach(answer => {
+    questions[index].possibleAnswers.forEach(answer => {
         answerContainer.innerHTML += `
         <div>
             <button class="border-[1px] hover:bg-gray-100 transition-all duration-300 rounded-md p-3 w-full">${answer}</button>
@@ -60,7 +71,7 @@ function handleQuestion(index) {
                 btn.disabled = true
             })
 
-            if (e.target.textContent === qs[index].correctAnswer) {
+            if (e.target.textContent === questions[index].correctAnswer) {
                 e.target.classList.remove('hover:bg-gray-100')
                 e.target.classList.add('border-green-500','bg-green-100','text-green-800')
             } else {
@@ -68,7 +79,7 @@ function handleQuestion(index) {
                 e.target.classList.add('border-red-500','bg-red-100','text-red-800')
                 console.log('false!')
                 answers.forEach((btn) => {
-                    if (btn.textContent === qs[index].correctAnswer){
+                    if (btn.textContent === questions[index].correctAnswer){
                         btn.classList.remove('hover:bg-gray-100')
                         btn.classList.add('border-green-500','bg-green-100','text-green-800')
                     }
@@ -76,7 +87,7 @@ function handleQuestion(index) {
                 // Timeout 2 seconds
             }
             setTimeout(() => {
-                if (currentQuestionIndex === qs.length - 1) {
+                if (currentQuestionIndex === questions.length - 1) {
                     currentQuestionIndex = 0
                     showQuizCompletion()
                     return
@@ -105,10 +116,7 @@ function showQuizCompletion() {
     
     // Auto redirect after 3 seconds
     setTimeout(() => {
-        window.location.href = './index.html'; // Redirect to home page
-        // Alternative options:
-        // window.location.href = 'https://google.com'; // Redirect to external site
-        // window.history.back(); // Go back to previous page
+        history.back() // Redirect to home page
     }, 3000); // 3 second delay
 }
 
