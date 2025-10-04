@@ -1,5 +1,5 @@
 import { loginButton } from "./navbarLoginButton.js";
-import { requireAuth } from "../../src/util/auth.js";
+import { requireAuth, getCurrentUser } from "../../src/util/auth.js";
 
 function sectionContainer() {
     document.querySelectorAll('p[data-target').forEach(link => {

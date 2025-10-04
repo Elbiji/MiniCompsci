@@ -26,3 +26,14 @@ export async function redirect() {
         window.location.href = './index.html'
     }
 }
+
+export async function getCurrentUser() {
+    const { data, error } = await supabase.auth.getUser()
+    
+    if (error) {
+        console.error('Auth error:', error.message)
+        return null
+    }
+    
+    return data.user 
+}

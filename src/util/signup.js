@@ -1,5 +1,5 @@
 import supabase from "./supabaseClient.js"
-import { createUser } from "../models/user.js"
+import { createUser } from "../models/user_stats.js"
 
 async function signUpNewUser(email , password) {
     const button = document.getElementById('signup-btn')
