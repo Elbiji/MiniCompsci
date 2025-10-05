@@ -150,10 +150,10 @@ async function showQuizCompletion() {
     // Clear answer container
     answerContainer.innerHTML = '';
     
-    // Auto redirect after 3 seconds
-    setTimeout(() => {
-        history.back() // Redirect to home page
-    }, 3000); // 3 second delay
+    // // Auto redirect after 3 seconds
+    // setTimeout(() => {
+    //     history.back() // Redirect to home page
+    // }, 3000); // 3 second delay
 }
 
 handleQuestion(currentQuestionIndex);
