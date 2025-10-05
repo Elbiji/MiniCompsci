@@ -1,12 +1,46 @@
 import { modules as md } from "./constant/modules.js";
-import { requireAuth } from "../util/auth.js";
+import { getCurrentUser, requireAuth } from "../util/auth.js";
 import { loginButton } from "./navbarLoginButton.js";
 import { checkUser, registerUser } from "../models/user_courses.js";
+import supabase from "../util/supabaseClient.js";
 
 const moduleContainer = document.getElementById('moduleContainer')
 
+async function getUserQuizScores() {
+    try {
+        const {data: {session}} = await supabase.auth.getSession()
+
+        const response = await fetch("https://zqhqdommdaqthfopkhnw.supabase.co/functions/v1/user_quizes", {
+            method: "GET",
+            headers: { 
+                "Content-Type": "application/json", 
+                "Authorization": `Bearer ${session.access_token}` 
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`TTP error! status: ${response.status}`)
+        }
+
+        const result = await response.json()
+        console.log(result)
+        const scoresMap = {}
+        result.data.forEach(quiz => {
+            scoresMap[quiz.course_id] = quiz.quiz_score
+        })
+        return scoresMap
+    } catch (error) {
+        console.log('Error fetching quiz scores:', error)
+        return {}
+    }
+}
+
 async function handleModule(){
+    const userScores = await getUserQuizScores()
+
     md.forEach((module) => {
+        const userScore = userScores[module.id] || null
+
         moduleContainer.innerHTML += `
          <div class="module-card flex-col rounded-2xl border-[1px] p-4 relative overflow-hidden shadow-sm hover:translate-y-[-5px] cursor-pointer transition-all duration-300 bg-gradient-to-br from-white to-gray-100/50" data-href=${module.href} data-id=${module.id}>
             <div class="flex flex-col space-y-6 justify-between h-[200px]">
@@ -20,13 +54,21 @@ async function handleModule(){
                         ${module.description}
                     </p>
                 </div>
-                <div class="flex">
-                    <div class="p-2 border-[1px] px-4 rounded-lg bg-white">
+                <div class="w-auto">
+                    <div class="flex-col p-2 border-[1px] px-4 rounded-lg bg-white">
                         <p class="font-semibold text-sm">
-                        ${module.difficulty}
-                    </p>
+                            ${module.difficulty}
+                        </p>
+                        ${userScore !== null ? `
+                            <div >
+                                ${userScore}
+                            </div>
+                        ` : `
+                            <div> 
+                            Not taken
+                            </div>
+                        `}
                     </div>
-                    <p>
                 </div>
             </div>
          </div>
@@ -63,7 +105,6 @@ async function handleModule(){
     })
 }
 
-document.addEventListener('DOMContentLoaded', requireAuth)
-document.addEventListener('DOMContentLoaded', loginButton)
+document.addEventListener('DOMContentLoaded', requireAuth(), loginButton())
 handleModule()
 
