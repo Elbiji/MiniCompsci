@@ -42,17 +42,32 @@ async function handleModule(){
         const userScore = userScores[module.id] || null
 
         moduleContainer.innerHTML += `
-         <div class="module-card flex-col rounded-2xl border-[1px] p-4 relative overflow-hidden shadow-sm hover:translate-y-[-5px] cursor-pointer transition-all duration-300 bg-gradient-to-br from-white to-gray-100/50" data-href=${module.href} data-id=${module.id}>
-            <div class="flex flex-col space-y-6 justify-between h-[200px]">
-                <div>
-                        ${module.topic}
-                    </p>
-                    <h1 class="font-semibold">
-                        ${module.title}
-                    </h1>
-                    <p class="text-sm mt-2 font-normal text-gray-600">
-                        ${module.description}
-                    </p>
+         <div class="module-card flex-col rounded-2xl border-[1px] p-4 relative overflow-hidden shadow-sm hover:translate-y-[-5px] cursor-pointer transition-all duration-300 bg-gradient-to-br from-white to-gray-100/50 hover:shadow-2xl hover:shadow-amber-600/20" data-href=${module.href} data-id=${module.id}>
+            <div class="flex flex-col justify-between h-[200px]">
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center">
+                        <p>
+                            ${module.topic}
+                        </p>
+                        ${userScore !== null ? `
+                            <div class="px-4 py-1 border-[1px] rounded-lg text-sm font-semibold bg-white">
+                                ${userScore > 70 ? `
+                                    Pass
+                                ` : `
+                                    Failed
+                                `}
+                            </div>
+                        ` :
+                        ``}
+                    </div>
+                    <div>
+                        <h1 class="font-semibold">
+                            ${module.title}
+                        </h1>
+                        <p class="text-xs mt-2 font-normal text-gray-600">
+                            ${module.description}
+                        </p>                        
+                    </div>
                 </div>
                 <div class="w-auto">
                     <div class="flex-col p-2 border-[1px] px-4 rounded-lg bg-white">
@@ -60,11 +75,11 @@ async function handleModule(){
                             ${module.difficulty}
                         </p>
                         ${userScore !== null ? `
-                            <div >
-                                ${userScore}
+                            <div class="text-sm">
+                                <a class="font-semibold">Score:</a> ${userScore}
                             </div>
                         ` : `
-                            <div> 
+                            <div class="text-sm"> 
                             Not taken
                             </div>
                         `}
