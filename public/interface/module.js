@@ -39,7 +39,7 @@ async function handleModule(){
     const userScores = await getUserQuizScores()
 
     md.forEach((module) => {
-        const userScore = userScores[module.id] || null
+        const userScore = userScores[module.id] !== undefined ? userScores[module.id] : null
 
         moduleContainer.innerHTML += `
          <div class="module-card flex-col rounded-2xl border-[1px] p-4 relative overflow-hidden shadow-sm hover:translate-y-[-5px] cursor-pointer transition-all duration-300 bg-gradient-to-br from-white to-gray-100/50 hover:shadow-2xl hover:shadow-amber-600/20" data-href=${module.href} data-id=${module.id}>
