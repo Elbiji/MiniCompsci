@@ -1,6 +1,6 @@
 import { getCurrentUser } from "../util/auth.js";
 import supabase from "../util/supabaseClient.js";
-import { questions as pythonVizQuestions } from "./constant/pythonVizQuestions.js";
+import { questions as pythonVizQuestions, questions } from "./constant/pythonVizQuestions.js";
 
 const quizProgress = document.getElementById('quizProgress')
 const questionContainer = document.getElementById('questionContainer')
@@ -9,6 +9,7 @@ const backgroundAudio = document.getElementById('backgroundAudio')
 const quizElement = document.querySelector('div[data-quiz-id]'); // Getting the course id in a div element
 let currentQuestionIndex = 0;
 let audioStarted = false
+let correctAnswer = 0
 
 
 function startBackgroundAudio() {
@@ -78,10 +79,12 @@ async function handleQuestion(index) {
             if (e.target.textContent === questions[index].correctAnswer) {
                 e.target.classList.remove('hover:bg-gray-100')
                 e.target.classList.add('border-green-500','bg-green-100','text-green-800')
+                correctAnswer++
             } else {
                 e.target.classList.remove('hover:bg-gray-100')
                 e.target.classList.add('border-red-500','bg-red-100','text-red-800')
                 console.log('false!')
+
                 answers.forEach((btn) => {
                     if (btn.textContent === questions[index].correctAnswer){
                         btn.classList.remove('hover:bg-gray-100')
@@ -104,11 +107,16 @@ async function handleQuestion(index) {
     })
 }
 
+function handleScore() {
+    return (Math.min(Math.round((100/questions.length)*correctAnswer),100))
+}
+
 async function showQuizCompletion() {
     // Show completion message
     const quizId = quizElement?.getAttribute('data-quiz-id');
     const { data: { session } } = await supabase.auth.getSession();
     const currentUser = await getCurrentUser();
+    const score = handleScore()
     console.log(currentUser.id)
     console.log(quizId)
     try {
@@ -120,7 +128,7 @@ async function showQuizCompletion() {
             },
             body: JSON.stringify({
                 user_id: currentUser.id,
-                score: 50,
+                score: score,
                 course: quizId
             })
         });
@@ -150,10 +158,10 @@ async function showQuizCompletion() {
     // Clear answer container
     answerContainer.innerHTML = '';
     
-    // // Auto redirect after 3 seconds
-    // setTimeout(() => {
-    //     history.back() // Redirect to home page
-    // }, 3000); // 3 second delay
+    // Auto redirect after 3 seconds
+    setTimeout(() => {
+        history.back() // Redirect to home page
+    }, 3000); // 3 second delay
 }
 
 handleQuestion(currentQuestionIndex);
