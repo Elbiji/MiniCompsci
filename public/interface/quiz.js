@@ -1,9 +1,12 @@
+import { getCurrentUser } from "../util/auth.js";
+import supabase from "../util/supabaseClient.js";
 import { questions as pythonVizQuestions } from "./constant/pythonVizQuestions.js";
 
 const quizProgress = document.getElementById('quizProgress')
 const questionContainer = document.getElementById('questionContainer')
 const answerContainer = document.getElementById('answerContainer')
 const backgroundAudio = document.getElementById('backgroundAudio')
+const quizElement = document.querySelector('div[data-quiz-id]'); // Getting the course id in a div element
 let currentQuestionIndex = 0;
 let audioStarted = false
 
@@ -18,18 +21,19 @@ function startBackgroundAudio() {
     }
 }
 
+// Loading the appropriate question
 function loadAppropriateQuestions() {
-    const quizElement = document.querySelector('div[data-quiz-id]');
     const quizId = quizElement?.getAttribute('data-quiz-id');
     
-    if (quizId === "python-viz") {
+    // For now just handle python-viz 
+    if (quizId === "python-viz-libraries") {
         return pythonVizQuestions;
     }
     return []; // Fallback
 }
 
 
-function handleQuestion(index) {
+async function handleQuestion(index) {
     // Quiz Progress
     // reset state
     const questions = loadAppropriateQuestions()
@@ -86,10 +90,10 @@ function handleQuestion(index) {
                 })
                 // Timeout 2 seconds
             }
-            setTimeout(() => {
+            setTimeout(async () => {
                 if (currentQuestionIndex === questions.length - 1) {
                     currentQuestionIndex = 0
-                    showQuizCompletion()
+                    await showQuizCompletion()
                     return
                 } else {
                     currentQuestionIndex ++
@@ -100,8 +104,40 @@ function handleQuestion(index) {
     })
 }
 
-function showQuizCompletion() {
+async function showQuizCompletion() {
     // Show completion message
+    const quizId = quizElement?.getAttribute('data-quiz-id');
+    const { data: { session } } = await supabase.auth.getSession();
+    const currentUser = await getCurrentUser();
+    console.log(currentUser.id)
+    console.log(quizId)
+    try {
+        const response = await fetch("https://zqhqdommdaqthfopkhnw.supabase.co/functions/v1/user_quizes", {
+            method: "POST",
+            headers: { 
+                "Content-Type": "application/json", 
+                "Authorization": `Bearer ${session.access_token}` 
+            },
+            body: JSON.stringify({
+                user_id: currentUser.id,
+                score: 50,
+                course: quizId
+            })
+        });
+
+        const responseText = await response.text();
+        console.log('Server response:', responseText);
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}, response: ${responseText}`);
+        }
+
+        const result = JSON.parse(responseText);
+        console.log('Quiz result saved:', result);
+    } catch (error) {
+        console.error('Error saving quiz result:', error.message);
+    }
+
     quizProgress.innerHTML = ""
     questionContainer.innerHTML = `
         <div class="text-center">
