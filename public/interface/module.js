@@ -120,6 +120,6 @@ async function handleModule(){
     })
 }
 
-document.addEventListener('DOMContentLoaded', requireAuth(), loginButton())
-handleModule()
+document.addEventListener('DOMContentLoaded', requireAuth(), loginButton(), handleModule())
+
 
