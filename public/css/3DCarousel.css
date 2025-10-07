@@ -1,0 +1,47 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.containers {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery {
+    position: relative;
+    width: 12rem;
+
+    transform-style: preserve-3d;
+    transform: perspective(1500px) rotateX(5deg) rotateY(0deg);
+    
+    transition: 2s;
+}
+
+.blur {
+    filter: blur(5px);
+    transition: filter 1s ease;
+}
+
+.gallery img {
+    position: absolute;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 2rem;
+
+    -webkit-box-reflect: below .2rem linear-gradient(transparent, transparent, transparent, transparent, #0005);
+}
+
+img:hover {
+    filter: blur(0px) ;
+    
+}
+
+@keyframes circular-rotate {
+    to {
+       transform: rotate3d(-1,1,0, 360deg) perspective(2000px); 
+    }
+}
+

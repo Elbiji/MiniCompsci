@@ -7,6 +7,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="./css/output.css" rel="stylesheet">
+  <link href="./css/3DCarousel.css" rel="stylesheet">
   <title>MiniCompSci</title>
 </head>
 <body class="font-ubuntu overflow-x-hidden">
@@ -49,42 +50,17 @@
         <span>Project Repository</span>
       </a>
   </section>
-  <section class="py-20 px-6 bg-radial from-white to bg-gray-100">
-    <div class="max-w-6xl mx-auto space-y-12">
-        <!-- Cards -->
-        <div class="flex rounded-2xl border-[2px] border-gray-100 bg-white overflow-hidden">
-          <div class="grid lg:grid-cols-3 gap-6">
-            <div class="col-span-1">
-              <div class="flex flex-col items-center justify-between h-full p-6">
-                <div class=" w-max-[50px] ">
-                  <div class="flex-col space-y-3">
-                    <p class="leading-tight">
-                      You start small, learn big
-                    </p>
-                    <h1 class="text-3xl font-medium">
-                      <span class="font-bold text-transparent bg-gradient-to-r from-amber-500 to-purple-500 bg-clip-text">Python</span> makes coding simple and fun.
-                    </h1>
-                  </div>
-                </div>
-                <div class="flex-col space-y-3">
-                  <h1 class="font-medium">
-                    Easy to read, easy to learn
-                  </h1>
-                  <p class="text-gray-500">
-                    Python’s beginner-friendly syntax helps you focus on problem-solving, not complex rules. Through mini quizlets, you’ll build confidence step by step.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-span-2 ">
-              <div class="h-[564px] w-full">
-                <img src="./assets/Group 164.png" class="w-full h-full object-cover rounded-tr-2xl rounded-br-2xl duration-200 transition-all hover:border-opacity-0 animate-pulse scale-150"/>
-              </div>
-            </div>
-          </div>
-        </div>
+  <section class="pt-40 pb-5 px-6 relative">
+    <!-- 3D Carousel -->
+    <div class="containers">
+      <div class="gallery">
+        <img src="assets/OHL - All.jpg" alt="">
+        <img src="assets/OHL - All-2.jpg" alt="">
+        <img src="assets/OHL - All-1.jpg" alt="">
+      </div>
+    </div>
   </section>
-  <section class="relative mx-auto py-20 pb-48 group bg-gradient-to-b from-white to-gray-100/50">
+  <section class="relative top-3 mx-auto pt-10  pb-48 group bg-gradient-to-b from-white to-gray-100/50">
     <div class="max-w-6xl mx-auto px-6 space-y-12 ">
       <div class="flex items-center space-x-2 text-gray-600">
       </div>
@@ -146,5 +122,24 @@
     </div>
   </footer>
   <script type="module" src="./interface/index.js"></script>
+  <script>
+    const gallery = document.querySelector('.gallery')
+    const images = document.querySelectorAll('.gallery img');
+    const img_angle = 360 / gallery.children.length
+    images.forEach((image,i) => {
+      image.style.transform = `rotate3d(0,1,0,${(i+1) * img_angle}deg) translateZ(30rem)`
+      image.classList.add('blur')
+
+      image.onclick = (e) => {
+        const clickedElement = e.target
+        gallery.style.transform = `perspective(1500px) rotateX(5deg) rotateY(-${(i+1) * img_angle}deg)`
+
+        images.forEach( img => {
+          img.classList.add('blur')
+        })
+        clickedElement.classList.remove('blur')
+      }
+    })
+  </script>
 </body>
 </html>
