@@ -632,6 +632,22 @@ video {
   top: 0.75rem;
 }
 
+.left-1\/2 {
+  left: 50%;
+}
+
+.-top-72 {
+  top: -18rem;
+}
+
+.top-72 {
+  top: 18rem;
+}
+
+.top-96 {
+  top: 24rem;
+}
+
 .z-50 {
   z-index: 50;
 }
@@ -646,6 +662,10 @@ video {
 
 .col-span-2 {
   grid-column: span 2 / span 2;
+}
+
+.m-auto {
+  margin: auto;
 }
 
 .mx-auto {
