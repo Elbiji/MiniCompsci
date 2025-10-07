@@ -8,9 +8,9 @@ const moduleContainer = document.getElementById('moduleContainer')
 
 async function getUserQuizScores() {
     try {
-        const {data: {session}} = await supabase.auth.getSession()
-
-        const response = await fetch("https://zqhqdommdaqthfopkhnw.supabase.co/functions/v1/user_quizes", {
+        const { data: {session} } = await supabase.auth.getSession()
+        const { data: {user} } = await supabase.auth.getUser()
+        const response = await fetch(`https://zqhqdommdaqthfopkhnw.supabase.co/functions/v1/user_quizes?user_id=${user.id}`, {
             method: "GET",
             headers: { 
                 "Content-Type": "application/json", 
@@ -19,7 +19,7 @@ async function getUserQuizScores() {
         });
 
         if (!response.ok) {
-            throw new Error(`TTP error! status: ${response.status}`)
+            throw new Error(`HTTP error! status: ${response.status}`)
         }
 
         const result = await response.json()
@@ -120,6 +120,6 @@ async function handleModule(){
     })
 }
 
-document.addEventListener('DOMContentLoaded', requireAuth(), loginButton(), handleModule())
-
+document.addEventListener('DOMContentLoaded', requireAuth(), loginButton())
+handleModule()
 
